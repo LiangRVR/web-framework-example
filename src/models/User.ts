@@ -3,7 +3,10 @@ interface UserProps {
   age?: number;
 }
 
+type CallBack = () => void;
+
 export class User {
+  events: { [key: string]: CallBack[] } = {};
   constructor(private data: UserProps) {}
 
   get(propName: string): number | string {
@@ -12,5 +15,11 @@ export class User {
 
   set(user: UserProps): void {
     Object.assign(this.data, user);
+  }
+
+  on(eventName: string, callback: CallBack): void {
+    const handlers = this.events[eventName] || [];
+    handlers.push(callback);
+    this.events[eventName] = handlers;
   }
 }
