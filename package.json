@@ -1,0 +1,24 @@
+{
+  "name": "web-framework-example",
+  "version": "1.0.0",
+  "description": "Web framework example using typescript and parcel",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiangRVR/web-framework-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiangRVR/web-framework-example/issues"
+  },
+  "homepage": "https://github.com/LiangRVR/web-framework-example#readme",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
