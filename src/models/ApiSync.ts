@@ -1,7 +1,7 @@
 import axios, { AxiosPromise } from "axios";
 import { HasId } from "./Model";
 
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
   constructor(public rootUrl: string) {}
   fetch(id: number): AxiosPromise{
     return axios.get(`${this.rootUrl}/${id}`);
