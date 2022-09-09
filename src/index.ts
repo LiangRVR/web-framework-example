@@ -3,6 +3,11 @@ import { UserForm } from "./views/UserForm";
 
 const user = User.buildUser({ name: "Liang", age: 26 });
 
-const form = new UserForm(document.getElementById("root"), user);
+const root = document.getElementById("root");
 
-form.render();
+if (root) {
+  const form = new UserForm(root, user);
+  form.render();
+} else {
+  throw new Error("No root found");
+}
