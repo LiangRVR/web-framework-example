@@ -1,14 +1,17 @@
 import { User } from "./models/User";
-import { UserEdit } from "./views/UserEdit";
+import { UserList } from "./views/UserList";
 
-const user = User.buildUser({ name: "Liang", age: 26 });
+const users = User.buildUserCollection();
+const newUser = User.buildUser({name: "paco", age: 30})
+newUser.save()
 
-const root = document.getElementById("root");
+users.on("change", () => {
+  const root = document.getElementById("root");
+  if (root) {
+    new UserList(root, users).render();
+  } else {
+    throw new Error("No root found");
+  }
+});
 
-if (root) {
-  const form = new UserEdit(root, user);
-  console.log(form)
-  form.render();
-} else {
-  throw new Error("No root found");
-}
+users.fetch();
